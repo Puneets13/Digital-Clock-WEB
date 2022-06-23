@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitl Clock </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="container">
+        <div class="clock-container">
+            <div id="date"></div>
+            <div id="time"></div>
+        </div>
+    </div>
+
+<div id="container2">
+<div class="box">
+   <p>PUNEET SINGH <br><br>
+    <a class="social-icon" href="https://www.instagram.com/" target="_blank"> 
+        <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+
+    <a class = "twitter" href="https://www.twitter.com/" target="_blank">
+        <ion-icon name="logo-twitter"></ion-icon>
+
+    </a>
+
+    <a class = "youtube" href="https://www.youtube.com/" target="_blank">
+        <ion-icon name="logo-youtube"></ion-icon>
+
+    </a>
+   </p> 
+</div>
+</div>
+
+    <script type="text/javascript">
+
+        function showTime() {
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            var session = "AM";
+            var dt = date.getDate();
+            var mon = date.getMonth();
+            var yr = date.getFullYear();
+            let day = date.getDay();
+
+            if (h == 0) {
+                h = 12;
+            }
+            if (h > 12) {
+                h = h - 12;
+                session = "PM";
+            }
+            if (h < 10) {
+                h = "0" + h;
+            }
+            if (m < 10) {
+                m = "0" + m;
+            }
+            if (s < 10) {
+                s = "0" + s;
+            }
+
+
+            let monthsarr = [" January", " February", " March", " April", " May", " June", " July", " August", " September", " October", " November", " December"];
+            let daysarr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+
+            var time = h + " : " + m + " : " + s + " " + session;
+            var currentdate = daysarr[day] + " , " + dt + "  " + monthsarr[mon] + " " + yr;
+
+            document.getElementById("time").innerHTML = time;
+            document.getElementById("date").innerHTML = currentdate;
+
+            setTimeout(showTime, 1000);
+
+        }
+
+
+        showTime();
+    </script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
